@@ -1,7 +1,7 @@
 st++
 ==============
 
-`stpp` or `st++` stands from statistics++ and is a simple statistical package written in C++,
+`st++` or `stpp` stands for statistics++ - it is a simple statistical package written in C++,
 bind with Python wrapper.
 
 Project wrapper is built with [pybind11](https://github.com/pybind/pybind11).
