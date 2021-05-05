@@ -1,10 +1,10 @@
 #include "../maths/special_functions.hpp"
 #include "gamma_distribution.hpp"
 
-GammaDistribution::GammaDistribution(double _k, double _theta) {
+GammaDistribution::GammaDistribution(double k_, double theta_) {
     left_support = 0.0;
-    k = _k;
-    theta = _theta;
+    k = k_;
+    theta = theta_;
 }
 
 double GammaDistribution::pdf(double x) {

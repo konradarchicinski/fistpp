@@ -1,9 +1,9 @@
 #include "../maths/special_functions.hpp"
 #include "normal_distribution.hpp"
 
-NormalDistribution::NormalDistribution(double _mu, double _sigma) {
-    mu = _mu;
-    sigma = _sigma;
+NormalDistribution::NormalDistribution(double mu_, double sigma_) {
+    mu = mu_;
+    sigma = sigma_;
 }
 
 double NormalDistribution::pdf(double x) {

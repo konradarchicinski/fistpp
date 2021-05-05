@@ -7,7 +7,7 @@ class ExponentialDistribution : public Distribution {
 public:
     double lambda;
     
-    ExponentialDistribution(double _lambda=1.0);
+    ExponentialDistribution(double lambda_=1.0);
 
     virtual double pdf(double x) override;
     virtual double cdf(double x) override;

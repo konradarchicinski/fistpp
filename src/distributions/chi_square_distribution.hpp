@@ -7,7 +7,7 @@ class ChiSquareDistribution : public Distribution {
 public:
     int k;
 
-    ChiSquareDistribution(int _k = 2);
+    ChiSquareDistribution(int k_=2);
 
     virtual double pdf(double x) override;
     virtual double cdf(double x) override;

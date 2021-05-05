@@ -9,8 +9,7 @@ public:
     double sigma;
     double nu;
 
-    StudentTDistribution(
-        double _mu = 0.0, double _sigma = 1.0, double _nu = 4.0);
+    StudentTDistribution(double mu_=0.0, double sigma_=1.0, double nu_=4.0);
 
     virtual double pdf(double x) override;
     virtual double cdf(double x) override;

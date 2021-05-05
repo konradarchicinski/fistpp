@@ -1,8 +1,8 @@
 #include "exponential_distribution.hpp"
 
-ExponentialDistribution::ExponentialDistribution(double _lambda) {
+ExponentialDistribution::ExponentialDistribution(double lambda_) {
     left_support = 0.0;
-    lambda = _lambda;
+    lambda = lambda_;
 }
 
 double ExponentialDistribution::pdf(double x) {

@@ -1,10 +1,10 @@
 #include "../maths/special_functions.hpp"
 #include "chi_square_distribution.hpp"
 
-ChiSquareDistribution::ChiSquareDistribution(int _k)
-    : gamma_distribution(_k / 2.0, 2.0) {
+ChiSquareDistribution::ChiSquareDistribution(int k_)
+    : gamma_distribution(k_ / 2.0, 2.0) {
     left_support = 0.0;
-    k = _k;
+    k = k_;
 }
 
 double ChiSquareDistribution::pdf(double x) {

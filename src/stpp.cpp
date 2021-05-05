@@ -18,6 +18,10 @@ PYBIND11_MODULE(stpp, m) {
       m.doc() = "Simple statistical Python package written in C++.";
 
       py::class_<Distribution>(m, "Distribution")
+            .def_readwrite("left_support", &Distribution::left_support)
+            .def_readwrite("right_support", &Distribution::right_support)
+            .def_readwrite("location", &Distribution::location)
+            .def_readwrite("scale", &Distribution::scale)
             .def("simulate", &Distribution::simulate,
                  "simulations_number"_a,
                  "seed"_a=1)
@@ -28,19 +32,29 @@ PYBIND11_MODULE(stpp, m) {
             .def("variance", &Distribution::variance);
 
       py::class_<ChiSquareDistribution, Distribution>(m, "ChiSquareDistribution")
-            .def(py::init<int &>());
+            .def(py::init<int &>(), "k"_a=2)
+            .def_readwrite("k", &ChiSquareDistribution::k);
 
       py::class_<ExponentialDistribution, Distribution>(m, "ExponentialDistribution")
-            .def(py::init<double &>());
+            .def(py::init<double &>(), "lambda"_a=1.0)
+            .def_readwrite("lambda", &ExponentialDistribution::lambda);
             
       py::class_<GammaDistribution, Distribution>(m, "GammaDistribution")
-            .def(py::init<double &, double &>());
+            .def(py::init<double &, double &>(), "k"_a=2.0, "theta"_a=1.0)
+            .def_readwrite("k", &GammaDistribution::k)
+            .def_readwrite("theta", &GammaDistribution::theta);
 
       py::class_<NormalDistribution, Distribution>(m, "NormalDistribution")
-            .def(py::init<double &, double &>());
+            .def(py::init<double &, double &>(), "mu"_a=0.0, "sigma"_a=1.0)
+            .def_readwrite("mu", &NormalDistribution::mu)
+            .def_readwrite("sigma", &NormalDistribution::sigma);
 
       py::class_<StudentTDistribution, Distribution>(m, "StudentTDistribution")
-            .def(py::init<double &, double &, double &>());
+            .def(py::init<double &, double &, double &>(), 
+                  "mu"_a=0.0, "sigma"_a=1.0, "nu"_a=4.0)
+            .def_readwrite("mu", &StudentTDistribution::mu)
+            .def_readwrite("sigma", &StudentTDistribution::sigma)
+            .def_readwrite("nu", &StudentTDistribution::nu);
 
       py::class_<MersenneTwister>(m, "MersenneTwister")
             .def(py::init<double &, double &, unsigned long long int &>(),

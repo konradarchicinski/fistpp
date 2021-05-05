@@ -1,11 +1,10 @@
 #include "../maths/special_functions.hpp"
 #include "student_t_distribution.hpp"
 
-StudentTDistribution::StudentTDistribution(
-    double _mu, double _sigma, double _nu) {
-    mu = _mu;
-    sigma = _sigma;
-    nu = _nu;
+StudentTDistribution::StudentTDistribution(double mu_, double sigma_, double nu_) {
+    mu = mu_;
+    sigma = sigma_;
+    nu = nu_;
 }
 
 double StudentTDistribution::pdf(double x) {

@@ -8,7 +8,7 @@ public:
     double k;
     double theta;
 
-    GammaDistribution(double _k = 2.0, double _theta = 1.0);
+    GammaDistribution(double k_=2.0, double theta_=1.0);
 
     virtual double pdf(double x) override;
     virtual double cdf(double x) override;
