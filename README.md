@@ -1,31 +1,40 @@
 st++
 ==============
 
-`st++` or `stpp` stands for statistics++ and describes simple statistical package written in C++,
-binded with Python wrapper.
+`st++` or `stpp` stands for statistics++ and it describes simple statistical package written in C++, with Python binding.
 
-Project wrapper is built with [pybind11](https://github.com/pybind/pybind11).
+Python wrapper is built with [pybind11](https://github.com/pybind/pybind11).
 
 
 Installation
 ------------
 
-**On Unix (Linux, OS X)**
+**On Linux, OS X and Windows** *(tested on Python 3.6+)*
 
- - clone this repository
- - `pip install ./stpp`
+ - clone this repository by `git clone https://github.com/konradarchicinski/stpp`
+ - run `pip install ./stpp` from the folder where the repository was downloaded
 
-**On Windows (tested on Python 3.5+)**
-
- - clone this repository
- - `pip install ./stpp`
+######  *for Windows installation of Visual Studio 2015 may be required*
 
 
- Test call
+Examples
 ---------
 
+Simulating numbers from the Standard Normal Distribution
 ```python
 import stpp
-norm = stpp.NormalDistribution(0.0, 1.0)
-norm.simulate(10)
+
+norm = stpp.NormalDistribution()
+norm_sample = norm.simulate(100)
+```
+
+Simulating numbers from the Student's t-distribution
+```python
+t = stpp.StudentTDistribution()
+t_sample = t.simulate(100)
+```
+
+Performing Welch's t-test
+```python
+stpp.welch_test(norm_sample, t_sample)
 ```
