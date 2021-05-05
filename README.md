@@ -14,7 +14,7 @@ Installation
  - clone this repository by `git clone https://github.com/konradarchicinski/stpp`
  - run `pip install ./stpp` from the folder where the repository was downloaded
 
-######  *for Windows installation of Visual Studio 2015 may be required*
+*for Windows installation of Visual Studio 2015 may be required*
 
 
 Examples
