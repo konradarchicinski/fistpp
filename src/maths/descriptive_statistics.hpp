@@ -5,7 +5,10 @@
 #include <vector>
 
 double mean(std::vector<double> values);
-double variance(std::vector<double> values, int df = 1);
-double standard_deviation(std::vector<double> values, int df = 1);
+double variance(std::vector<double> values, int df=0);
+double standard_deviation(std::vector<double> values, int df=0);
+double welch_satterthwaite_equation(
+    std::vector<double> variances, std::vector<double> nus
+);
 
 #endif
