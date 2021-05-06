@@ -10,12 +10,12 @@ private:
     std::uniform_real_distribution<double> uniform;
 
 public:
-    MersenneTwister(double lower_bound = 0.0,
-                    double upper_bound = 1.0,
-                    unsigned long long int seed = std::chrono::system_clock::now()
-                                                      .time_since_epoch()
-                                                      .count());
-    ~MersenneTwister();
+    MersenneTwister(
+        double lower_bound = 0.0,
+        double upper_bound = 1.0,
+        unsigned long long int seed = std::chrono::system_clock::now()
+                                         .time_since_epoch().count());
+    ~MersenneTwister() {};
 
     double random_uniform();
 };
