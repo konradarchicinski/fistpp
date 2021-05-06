@@ -48,7 +48,8 @@ def main():
               "Operating System :: OS Independent"
           ],
           ext_modules=ext_modules,
-          cmdclass={"build_ext": build_ext},
+          cmdclass=dict(build_ext=build_ext),
+          test_suite="tests",
           zip_safe=False,
           python_requires=">=3.6")
 
