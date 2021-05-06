@@ -36,5 +36,6 @@ t_sample = t.simulate(100)
 
 Performing Welch's t-test
 ```python
-stpp.welch_test(norm_sample, t_sample)
+welch_ttest = stpp.WelchTTest(norm_sample, t_sample)
+welch_ttest.pvalue("two-sided")
 ```
