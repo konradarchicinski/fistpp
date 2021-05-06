@@ -1,16 +1,19 @@
 #include "special_functions.hpp"
+#include "asa239.hpp"
 
-#define MAXDOUBLE DBL_MAX
-#define CENTRAL_RANGE 0.7
-
+// Function to calculate inverse error function. Rational approximation
+// is used to generate an initial approximation, which is then improved
+// to full accuracy by two steps of Newton's method.  Code is a direct
+// translation of the erfinv m file in matlab version 2.0.
+//
+// Author:  Gary L. Pavlis, Indiana University
+// Date:  February 1996
+//
 double erfinv(double y)
 {
-    // Function to calculate inverse error function. Rational approximation
-    // is used to generate an initial approximation, which is then improved
-    // to full accuracy by two steps of Newton's method.  Code is a direct
-    // translation of the erfinv m file in matlab version 2.0.
-    // Author:  Gary L. Pavlis, Indiana University
-    // Date:  February 1996
+    const double MAXDOUBLE = DBL_MAX;
+    const double CENTRAL_RANGE = 0.7;
+
     double x, z, num, dem;
 
     // coefficients in rational expansion
@@ -46,12 +49,17 @@ double erfinv(double y)
     return x;
 }
 
-#define STOP 1.0e-8
-#define TINY 1.0e-30
 
+// zlib License
+// Copyright (c) 2016, 2017 Lewis Van Winkle
+//
+// https://github.com/codeplea/incbeta
+//
 double betainc(double a, double b, double x)
 {
-    // https://codeplea.com/incomplete-beta-function-c
+    const double STOP = 1.0e-8;
+    const double TINY = 1.0e-30;
+
 
     if (x < 0.0 || x > 1.0)
         return std::numeric_limits<float>::infinity();
@@ -106,25 +114,16 @@ double betainc(double a, double b, double x)
     return std::numeric_limits<float>::infinity();
 }
 
-#define DOUBLE_LIMIT 1e-14
 
-double gammainc(double s, double x)
+//  Author:
+//
+//    Original FORTRAN77 version by David Hill.
+//    C++ version by John Burkardt.
+//
+//  Downloaded from: 
+//  https://people.math.sc.edu/Burkardt/cpp_src/asa239/asa239.html
+double gammainc(double a, double x)
 {
-    double initial_value = pow(x, s) * exp(-x);
-
-    double rising_factorial = s;
-    double term = pow(x, 0) / rising_factorial;
-
-    int k = 0;
-    double run_sum = term;
-    while (term > DOUBLE_LIMIT)
-    {
-        k++;
-        rising_factorial *= (s + k);
-
-        term = pow(x, k) / rising_factorial;
-        run_sum += term;
-    }
-
-    return initial_value * run_sum;
+    int ifault;
+    return gammad(x, a, &ifault);
 }
