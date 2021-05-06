@@ -2,7 +2,7 @@
 #include <pybind11/stl.h>
 #include "maths/descriptive_statistics.hpp"
 #include "maths/special_functions.hpp"
-#include "diagnostics/base.hpp"
+#include "diagnostics/location_tests.hpp"
 #include "generators/mersenne_twister.hpp"
 #include "distributions/distribution.hpp"
 #include "distributions/chi_square_distribution.hpp"

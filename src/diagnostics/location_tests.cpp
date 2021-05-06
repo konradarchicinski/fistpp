@@ -1,4 +1,4 @@
-#include "base.hpp"
+#include "location_tests.hpp"
 
 
 double StatisticalTest::hypothesis_statitic(std::string alternative, double cdf) {
