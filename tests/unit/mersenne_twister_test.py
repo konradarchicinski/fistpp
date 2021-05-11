@@ -1,5 +1,5 @@
 import unittest
-import stpp
+import fistpp as fs
 
 
 class MersenneTwisterTests(unittest.TestCase):
@@ -12,7 +12,7 @@ class MersenneTwisterTests(unittest.TestCase):
         ]
 
     def test_random_uniform(self):
-        mt = stpp.MersenneTwister(lower_bound=0.0, upper_bound=1.0, seed=1)
+        mt = fs.MersenneTwister(lower_bound=0.0, upper_bound=1.0, seed=1)
 
         for i, uniform in enumerate(self.uniforms):
             self.assertEqual(mt.random_uniform(),

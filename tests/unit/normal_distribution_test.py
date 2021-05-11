@@ -1,10 +1,10 @@
 import unittest
-import stpp
+import fistpp as fs
 
 
 class NormalDistributionTests(unittest.TestCase):
     def setUp(self):
-        self.norm = stpp.NormalDistribution()
+        self.norm = fs.NormalDistribution()
         self.expected_values = [
             -3.09023230616781230, -2.57582930354889950, -2.32634787404084080,
             -1.95996398454005400, -1.64485362695147300, -1.28155156554460080,

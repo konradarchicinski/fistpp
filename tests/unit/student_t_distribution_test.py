@@ -1,10 +1,10 @@
 import unittest
-import stpp
+import fistpp as fs
 
 
 class StudentTDistributionTests(unittest.TestCase):
     def setUp(self):
-        self.studentt = stpp.StudentTDistribution()
+        self.studentt = fs.StudentTDistribution()
         self.expected_values = [
             -7.17318221978239200, -4.60409487134981700, -3.74694738797919150,
             -2.77644510519782400, -2.13184678632666370, -1.53320627405894180,

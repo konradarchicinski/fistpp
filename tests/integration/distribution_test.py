@@ -1,14 +1,14 @@
 import unittest
-import stpp
+import fistpp as fs
 
 
 class DistributionTests(unittest.TestCase):
     def setUp(self):
-        self.chi2dist = stpp.ChiSquareDistribution()
-        self.expdist = stpp.ExponentialDistribution()
-        self.gammdist = stpp.GammaDistribution()
-        self.norm = stpp.NormalDistribution()
-        self.studentt = stpp.StudentTDistribution()
+        self.chi2dist = fs.ChiSquareDistribution()
+        self.expdist = fs.ExponentialDistribution()
+        self.gammdist = fs.GammaDistribution()
+        self.norm = fs.NormalDistribution()
+        self.studentt = fs.StudentTDistribution()
         self.unit_square = [
             0.001, 0.005, 0.010, 0.025, 0.050, 0.100, 0.250, 0.500, 0.750,
             0.900, 0.950, 0.975, 0.990, 0.995, 0.999

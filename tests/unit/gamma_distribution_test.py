@@ -1,10 +1,10 @@
 import unittest
-import stpp
+import fistpp as fs
 
 
 class GammaDistributionTests(unittest.TestCase):
     def setUp(self):
-        self.gammdist = stpp.GammaDistribution()
+        self.gammdist = fs.GammaDistribution()
         self.expected_values = [
             0.045402017769504255, 0.103494546748095220, 0.148554740253260320,
             0.242209278543967340, 0.355361510698664060, 0.531811608389610100,

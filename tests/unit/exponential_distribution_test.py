@@ -1,10 +1,10 @@
 import unittest
-import stpp
+import fistpp as fs
 
 
 class ExponetialDistributionTests(unittest.TestCase):
     def setUp(self):
-        self.expdist = stpp.ExponentialDistribution()
+        self.expdist = fs.ExponentialDistribution()
         self.expected_values = [
             0.001000500333583534, 0.005012541823544286, 0.010050335853501450,
             0.025317807984289897, 0.051293294387550580, 0.105360515657826280,

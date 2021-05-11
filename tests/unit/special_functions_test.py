@@ -1,5 +1,5 @@
 import unittest
-import stpp
+import fistpp as fs
 
 
 class SpecialFunctionsTests(unittest.TestCase):
@@ -29,11 +29,11 @@ class SpecialFunctionsTests(unittest.TestCase):
         ]
         for i, number in enumerate(self.unit_square):
             self.assertEqual(
-                stpp.erfinv(number),
+                fs.erfinv(number),
                 positives[i],
                 msg=f"testing inverse error function for {number}")
             self.assertEqual(
-                stpp.erfinv(-number),
+                fs.erfinv(-number),
                 negatives[i],
                 msg=f"testing inverse error function for {-number}")
 
@@ -89,7 +89,7 @@ class SpecialFunctionsTests(unittest.TestCase):
         for i, pair in enumerate(params_pairs):
             for j, number in enumerate(self.unit_square):
                 self.assertAlmostEqual(
-                    stpp.betainc(*pair, number),
+                    fs.betainc(*pair, number),
                     expected_betainc[i][j],
                     msg=("testing beta incomplete function for "
                          f"{number} and {pair} parameters"))
@@ -134,7 +134,7 @@ class SpecialFunctionsTests(unittest.TestCase):
         for i, param in enumerate(params):
             for j, number in enumerate(numbers):
                 self.assertAlmostEqual(
-                    stpp.gammainc(param, number),
+                    fs.gammainc(param, number),
                     expected_gammainc[i][j],
                     msg=("testing gamma incomplete function for "
                          f"{number} and {param} parameter"))

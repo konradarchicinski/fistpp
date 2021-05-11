@@ -14,7 +14,7 @@
 namespace py = pybind11;
 using namespace py::literals;
 
-PYBIND11_MODULE(stpp, m) {
+PYBIND11_MODULE(fistpp, m) {
       m.doc() = "Simple statistical Python package written in C++.";
 
       py::class_<Distribution>(m, "Distribution")

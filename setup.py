@@ -26,21 +26,22 @@ def main():
         long_description = fh.read()
 
     ext_modules = [
-        Pybind11Extension("stpp",
+        Pybind11Extension("fistpp",
                           _source_files(),
                           define_macros=[('VERSION_INFO', __version__)])
     ]
 
-    setup(name="stpp",
+    setup(name="fistpp",
           version=__version__,
           author="Konrad Archicinski",
           author_email="konrad.archicinski@gmail.com",
           description="Simple statistical Python package written in C++.",
           long_description=long_description,
           long_description_content_type="text/markdown",
-          url="https://github.com/konradarchicinski/stpp",
+          url="https://github.com/konradarchicinski/fistpp",
           project_urls={
-              "Bug Tracker": "https://github.com/konradarchicinski/stpp/issues"
+              "Bug Tracker":
+              "https://github.com/konradarchicinski/fistpp/issues"
           },
           classifiers=[
               "Programming Language :: Python :: 3",

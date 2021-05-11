@@ -1,5 +1,5 @@
 import unittest
-import stpp
+import fistpp as fs
 
 
 class TestLocationTests(unittest.TestCase):
@@ -19,7 +19,7 @@ class TestLocationTests(unittest.TestCase):
         ])
 
     def test_ttest(self):
-        ttest_1 = stpp.TTest(*self.equal_variances_and_sample_sizes)
+        ttest_1 = fs.TTest(*self.equal_variances_and_sample_sizes)
         self.assertAlmostEqual(ttest_1.pvalue("two-sided"),
                                0.020544522734125933,
                                msg="pvalue testing")
@@ -27,7 +27,7 @@ class TestLocationTests(unittest.TestCase):
                                -2.455356398286006,
                                msg="t-statistic testing")
 
-        ttest_2 = stpp.TTest(*self.unequal_variances_and_sample_sizes)
+        ttest_2 = fs.TTest(*self.unequal_variances_and_sample_sizes)
         self.assertAlmostEqual(ttest_2.pvalue("two-sided"),
                                0.04485851653088632,
                                msg="pvalue testing")
@@ -36,7 +36,7 @@ class TestLocationTests(unittest.TestCase):
                                msg="t-statistic testing")
 
     def test_welch_ttest(self):
-        welch_ttest_1 = stpp.WelchTTest(*self.equal_variances_and_sample_sizes)
+        welch_ttest_1 = fs.WelchTTest(*self.equal_variances_and_sample_sizes)
         self.assertAlmostEqual(welch_ttest_1.pvalue("two-sided"),
                                0.021378001462866985,
                                msg="pvalue testing")
@@ -44,8 +44,7 @@ class TestLocationTests(unittest.TestCase):
                                -2.455356398286006,
                                msg="t-statistic testing")
 
-        welch_ttest_2 = stpp.WelchTTest(
-            *self.unequal_variances_and_sample_sizes)
+        welch_ttest_2 = fs.WelchTTest(*self.unequal_variances_and_sample_sizes)
         self.assertAlmostEqual(welch_ttest_2.pvalue("two-sided"),
                                0.14884169660532834,
                                msg="pvalue testing")

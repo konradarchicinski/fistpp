@@ -1,10 +1,10 @@
 import unittest
-import stpp
+import fistpp as fs
 
 
 class ChiSquareDistributionTests(unittest.TestCase):
     def setUp(self):
-        self.chi2dist = stpp.ChiSquareDistribution()
+        self.chi2dist = fs.ChiSquareDistribution()
         self.expected_values = [
             0.002001000667167574, 0.010025083647089872, 0.020100671707002250,
             0.050635615968580794, 0.102586588775100300, 0.210721031315653560,

@@ -1,5 +1,5 @@
 import unittest
-import stpp
+import fistpp as fs
 
 
 class DescriptiveStatisticsTests(unittest.TestCase):
@@ -18,32 +18,32 @@ class DescriptiveStatisticsTests(unittest.TestCase):
         ]
 
     def test_mean(self):
-        self.assertEqual(stpp.mean(self.vector1), 20.819999999999997)
-        self.assertEqual(stpp.mean(self.vector2), 22.986666666666668)
-        self.assertEqual(stpp.mean(self.vector3), 21.589999999999996)
+        self.assertEqual(fs.mean(self.vector1), 20.819999999999997)
+        self.assertEqual(fs.mean(self.vector2), 22.986666666666668)
+        self.assertEqual(fs.mean(self.vector3), 21.589999999999996)
 
     def test_variance(self):
-        self.assertEqual(stpp.variance(self.vector1), 7.3429333333333355)
-        self.assertEqual(stpp.variance(self.vector2), 3.5584888888888900)
-        self.assertEqual(stpp.variance(self.vector3), 16.259900000000005)
+        self.assertEqual(fs.variance(self.vector1), 7.3429333333333355)
+        self.assertEqual(fs.variance(self.vector2), 3.5584888888888900)
+        self.assertEqual(fs.variance(self.vector3), 16.259900000000005)
 
     def test_standard_deviation(self):
-        self.assertEqual(stpp.standard_deviation(self.vector1),
+        self.assertEqual(fs.standard_deviation(self.vector1),
                          2.7097847392981858)
-        self.assertEqual(stpp.standard_deviation(self.vector2),
+        self.assertEqual(fs.standard_deviation(self.vector2),
                          1.8863957402647225)
-        self.assertEqual(stpp.standard_deviation(self.vector3),
+        self.assertEqual(fs.standard_deviation(self.vector3),
                          4.0323566310533600)
 
     def test_welch_satterthwaite_equation(self):
         self.assertEqual(
-            stpp.welch_satterthwaite_equation(self.vector1, self.vector2),
+            fs.welch_satterthwaite_equation(self.vector1, self.vector2),
             332.87943847853250)
         self.assertEqual(
-            stpp.welch_satterthwaite_equation(self.vector1, self.vector3),
+            fs.welch_satterthwaite_equation(self.vector1, self.vector3),
             278.57195836695890)
         self.assertEqual(
-            stpp.welch_satterthwaite_equation(self.vector2, self.vector3),
+            fs.welch_satterthwaite_equation(self.vector2, self.vector3),
             289.14821263364706)
 
 
