@@ -1,7 +1,7 @@
 FiSt++
 ==============
 
-`FiSt++` or `fistpp` stands for `Fi`nance and `St`atistics, it is a simple package containing a collection of selected basic tools used in finance and statistics. Package is mostly written in C++, with Python bindings allowing run all functionalities using Python interpreter.
+`FiSt++` or `fistpp` stands for Finance and Statistics, it is a simple package containing a collection of selected basic tools used in finance and statistics. Package is mostly written in C++, with Python bindings allowing run all functionalities using Python interpreter.
 
 Python wrapper is built with [pybind11](https://github.com/pybind/pybind11).
 
