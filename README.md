@@ -39,3 +39,9 @@ Performing Welch's t-test
 welch_ttest = fs.WelchTTest(norm_sample, t_sample)
 welch_ttest.pvalue("two-sided")
 ```
+
+European call option valuation using Monte Carlo simulation
+```python
+option_pricer = fs.OptionPricer(0.5, 100, 95, 0.2, 0.06)
+option_pricer.estimate_price("Call", 1000000)
+```
