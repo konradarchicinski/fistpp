@@ -10,6 +10,7 @@
 #include "distributions/gamma_distribution.hpp"
 #include "distributions/normal_distribution.hpp"
 #include "distributions/student_t_distribution.hpp"
+#include "finance/option_pricer.hpp"
 
 namespace py = pybind11;
 using namespace py::literals;
@@ -69,6 +70,12 @@ PYBIND11_MODULE(fistpp, m) {
       py::class_<WelchTTest, TTest>(m, "WelchTTest")
             .def(py::init<std::vector<double> &, std::vector<double> &>(), 
                   "sample1"_a, "sample2"_a);
+
+      py::class_<OptionPricer>(m, "OptionPricer")
+            .def(py::init<double &, double &, double &, double &, double &>(), 
+                 "expiry"_a, "strike"_a, "spot"_a, "volatility"_a, "risk_free_rate"_a)
+            .def("estimate_price", &OptionPricer::estimate_price, 
+                 "option_type"_a, "number_of_paths"_a);
 
       m.def("mean", 
             &mean,
