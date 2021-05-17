@@ -71,11 +71,6 @@ PYBIND11_MODULE(fistpp, m) {
             .def(py::init<std::vector<double> &, std::vector<double> &>(), 
                   "sample1"_a, "sample2"_a);
 
-      py::class_<OptionPricer>(m, "OptionPricer")
-            .def(py::init<double &, double &, double &, double &, double &>(), 
-                 "expiry"_a, "strike"_a, "spot"_a, "volatility"_a, "risk_free_rate"_a)
-            .def("estimate_price", &OptionPricer::estimate_price, 
-                 "option_type"_a, "number_of_paths"_a);
 
       m.def("mean", 
             &mean,

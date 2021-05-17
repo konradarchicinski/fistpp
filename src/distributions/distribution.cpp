@@ -1,5 +1,4 @@
 #include "distribution.hpp"
-#include "../generators/mersenne_twister.hpp"
 
 double Distribution::ppf(double q) {
     double quantile = mean();
@@ -47,17 +46,27 @@ double Distribution::ppf(double q) {
     return quantile;
 }
 
+void Distribution::set_generator(double lower_bound,
+                                 double upper_bound,
+                                 unsigned long long int seed) {
+    generator = MersenneTwister(lower_bound, upper_bound, seed);
+}
+
+double Distribution::random_number() {
+    return ppf(generator.random_uniform());
+}
+
 std::vector<double> Distribution::simulate(
     unsigned long long int simulations_number, 
     unsigned long long int seed) {
-    MersenneTwister generator;
+    
     if (seed != 1)
-        generator = MersenneTwister(0.0, 1.0, seed);
+        set_generator(0.0, 1.0, seed);
 
     std::vector<double> random_numbers(simulations_number);
 
     for (int i = 0; i < simulations_number; i++)
-        random_numbers[i] = ppf(generator.random_uniform());
+        random_numbers[i] = random_number();
 
     return random_numbers;
 }
